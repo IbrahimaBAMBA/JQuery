@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="jquery-3.2.1.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <form>
+      <button type="button" name="button" id="noteAverage">noteAverages</button>
+      <input type="text" id="note1"><br/>
+      <input type="text" id="note2"><br/>
+      <input type="text" id="note3"><br/>
+      <input type="text" id="note4"><br/>
+      <input type="text" id="note5"><br/>
+    </form>
+        <script>
+          $(function(){
+           $('#noteAverage').click(function() {
+            var note1 = $('#note1').val();
+            var note2 = $('#note2').val();
+            var note3 = $('#note3').val();
+            var note4 = $('#note4').val();
+            var note5 = $('#note5').val();
+
+            note1 = parseInt(note1);            // On change nos chaines de caractères en nombre!
+            note2 = parseInt(note2);
+            note3 = parseInt(note3);
+            note4 = parseInt(note4);
+            note5 = parseInt(note5);
+            var noteAverage = (note1 + note2 + note3 + note4 + note5) / 5;
+
+           if (noteAverage >= 0 && noteAverage< 10 ) {
+             alert('En dessous de la moyenne');
+           }else if (noteAverage >= 10 && noteAverage < 13) {
+             alert('moyen');
+           }else if (noteAverage >= 13 && noteAverage < 13) {
+             alert('Bien');
+           }else if (noteAverage >= 16 && noteAverage < 20) {
+             alert('Très bien');
+           }else if (noteAverage == 20) {
+             alert('Excellent');
+            }
+          });
+        })
+       </script>
+   </body>
+</html>
+
+<!--<head>
+    <meta charset="utf-8">
+    <script src="jquery-3.2.1.js"></script>               2eme solution
+    <title>Exercice 2</title>
+  </head>
+  <body>
+    <h2>Notez vos 5 dernières notes</h2>
+    <form>
+      <label for="victoire">1ere Note : </label><input type="text" name="nom" placeholder="0" id="firstNote" />
+      <label for="secondNote">2eme note : </label><input type="text" name="secondNote" placeholder="0" id="secondNote" />
+      <label for="thirdNote">3ème Note : </label><input type="text" name="thirdNote" placeholder="0" id="thirdNote" />
+      <label for="fourthNote">4ème Note : </label><input type="text" name="fourthNote" placeholder="0" id="fourthNote" />
+      <label for="fifthNote">Dernière Note : </label><input type="text" name="fifthNote" placeholder="0" id="fifthNote" />
+      <button type="button" name="button" id="submit">calculer la moyenne</button>
+    </form>
+    <span id="appreciation"></span>
+    <script>
+    $(function(){
+      $('#submit').click(function(){
+        $('#appreciation').empty();
+        var firstNote = $('#firstNote').val();
+        var secondNote = $('#secondNote').val();
+        var thirdNote = $('#thirdNote').val();
+        var fourthNote = $('#fourthNote').val();
+        var fifthNote = $('#fifthNote').val();
+
+        if(firstNote && secondNote && thirdNote && fourthNote && fifthNote && parseFloat(firstNote)<=20 && parseFloat(secondNote)<=20 && parseFloat(thirdNote)<=20 && parseFloat(fourthNote)<=20 && parseFloat(fifthNote)<=20){
+          var average = (parseFloat(firstNote)+parseFloat(secondNote)+parseFloat(thirdNote)+parseFloat(fourthNote)+parseFloat(fifthNote))/5;
+          if(average < 10){
+            $('#appreciation').append('votre moyenne est de : ' + average + '<br />' + 'En dessous de la moyenne');
+          }else if (average >=10 && average <13) {
+            $('#appreciation').append('votre moyenne est de : ' + average + '<br />' + 'Moyen');
+          }else if (average >=13 && average <16) {
+            $('#appreciation').append('votre moyenne est de : ' + average + '<br />' + 'Bien');
+          }else if (average >=16 && average <20) {
+            $('#appreciation').append('votre moyenne est de : ' + average + '<br />' + 'Très bien');
+          }else if (average >=20) {
+            $('#appreciation').append('votre moyenne est de : ' + average + '<br />' + 'Excellent');
+          }
+        }else{
+          $('#appreciation').append('saisir des notes');
+        }
+      });
+    });
+    </script>
+  </body>
+</html>-->

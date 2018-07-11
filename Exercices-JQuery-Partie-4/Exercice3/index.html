@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>exercice 3 partie 4</title>
+  <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+  <form action="index.html" method="post">
+    <input type="text" name="name" placeholder="Ton nom Marty !" id="name"><br/>
+    <input type="text" name="firstname" placeholder="Ton prénom" id="firstname"><br/>
+    <input type="mail" name="mail" placeholder="adresse mail @" id="mail"><br/>
+    <input type="text" name="phone" placeholder="numéro de téléphone" id="phone"><br/>
+    <button type="button" name="button" id="enter">valider</button> <br/>
+  </form>
+  <script>
+  $(function(){
+    var name = $('#name').val();
+    var firstname = $('#firstname').val();
+    var mail = $('#mail').val();
+    var phone = $('#phone').val();
+
+    var regexNom = /[a-zA-Záàâäãåçéèêëíìîï]+[\-]?[a-zA-Záàâäãåçéèêëíìîï]$/;
+    var regexMail = /^[\w.-_\-]+[@]{1}[a-z]+[\.]{1}[a-z]{2,6}$/;
+    var regexTel = /[0]{1}[0-9]{9}$/;
+    $('#enter').click(function(){
+      if(regexNom.test(name) === false){
+        alert('Il doit y avoir une erreur à ton Nom');
+      };
+      if (regexNom.test(firstname) === false){
+        alert('Alors on ne sait plus écrire son petit prénom.');
+      };
+      if (regexMail.test(mail) === false){
+        alert('Ton adresse doit ressemblée à darkevin@lol.go');
+      };
+      if (regexTel.test(phone) === false){
+        alert('Exemple de numéro !0102030405!');
+      }else {
+        alert('Esh c\' bon, tu es pris.')
+      };
+    });
+  });
+   </script>
+ </body>
+</html>

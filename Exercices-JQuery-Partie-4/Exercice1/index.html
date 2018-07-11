@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-3.2.1.js"></script>
+
+  <title></title>
+</head>
+<body>
+  <select id="liste">
+    <option value="0">Pierre</option>
+    <option value="1">Feuille</option>
+    <option value="2">Ciseaux</option>
+  </select>
+  <button type="button" name="button" id="Shifumi">Shifumi</button>
+  <input type="text" id="numberVictory">
+  <input type="text" id="numberDefeat">
+  <input type="text" id="victoryPercentage">
+</body>
+<script>
+$(function(){
+  var choix = ['Pierre', 'Feuille', 'Ciseaux'];
+
+  var partyCounter = 0;
+  var victory = 0;
+  var defeat = 0;
+
+
+  $('#Shifumi').click(function(){
+    partyCounter++;
+    var choixOrdinateur = Math.floor(Math.random()*3); //Math.floor pour arrondir la valeur de Math.random
+    var monChoix = $('#liste').val();  //recuperation du choix de l'utilisateur
+
+    if ((monChoix == 0 && choixOrdinateur == 1) || (monChoix == 1 && choixOrdinateur == 2) || (monChoix == 2 && choixOrdinateur == 0)){
+      alert('J\'ai choisi ' + choix[monChoix] + ' j\'ai perdu !');
+      defeat++;
+      $('#numberDefeat').val(defeat);
+    }
+    else if ((monChoix == 1 && choixOrdinateur == 0) || (monChoix == 2 && choixOrdinateur == 1) || (monChoix == 0 && choixOrdinateur == 2)){
+      alert('j\'ai gagné !');
+      victory++;
+      $('#numberVictory').val(victory);
+    }
+    else{
+      alert('égalité');
+    }
+    var victoryPercentage = ( victory * 100) / partyCounter;
+    //var victoryPercentage = 'result';
+    alert(victoryPercentage);
+    $('#victoryPercentage').val(victoryPercentage);
+  });
+});
+</script>
+</html>
+
+ <!--<head>
+    <meta charset="utf-8">
+    <script src="jquery-3.2.1.js"></script>                  2eme solution
+    <title>Exercice 1</title>
+  </head>
+  <body>
+    <select id="select">
+      <option value="1">Pierre</option>
+      <option value="2">Feuille</option>
+      <option value="3">Ciseaux</option>
+    </select>
+    <input type="button" value="shifumi" id="button">
+    <script>
+      $(function(){
+        var numberGames = 0;
+        var numberWin = 0;
+        var percentWin = 0;
+        $('#button').click(function(){
+          numberGames++;
+          var choiceBot = Math.floor(Math.random()*3)+1;
+          var myChoice = $('#select').val();
+          if(choiceBot == myChoice){
+            alert('Egalité');
+          }else if((choiceBot == 3 && myChoice == 2)||(choiceBot == 2 && myChoice == 1)||(choiceBot == 1 && myChoice == 3)){
+            alert('Perdu');
+          }else{
+            numberWin++;
+            alert('Gagné');
+          }
+          percentWin = numberWin*100/numberGames;
+          alert(percentWin + '%');
+        });
+      });-->

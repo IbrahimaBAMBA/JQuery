@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-3.2.1.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Exercice 4</title>
+</head>
+<body>
+  <form>
+    <div id="rectangle"></div>
+    <button type="button" name="button" id="dimensions">Dimensions !</button>
+    <button type="button" name="button" id="green">Vert !</button>
+    <button type="button" name="button" id="resetColor">Reset la couleur !</button>
+    <button type="button" name="button" id="hide">Cacher !</button>
+    <button type="button" name="button" id="show">Voir !</button>
+  </form>
+  <script>
+  //Déclaration de la variable pour définir la hauteur de base
+  var hauteur = 10;
+  //Le bouton de rédimensionement
+  $('#dimensions').click(function(){
+    //Vérification de la hauteur
+    if(hauteur <= 100){
+      //Augementation de la hauteur de 10px si le rectangle fais 100pixels de hauteur ou moins
+      hauteur += 10;
+    }else{
+      //Remise à 10pixels la hauteur du réctangle si il dépasse 100pixels de hauteur
+      hauteur = 10;
+    }
+    $('#rectangle').css('height',hauteur+'px');
+  });
+  //Changer la couleur du rectangle en vert
+  $('#green').click(function(){
+    $('#rectangle').css('border','solid green 2px');
+  });
+  //Remettre le rectangle en noir
+  $('#resetColor').click(function(){
+    $('#rectangle').css('border','solid black 2px');
+  });
+  //Cacher le rectangle
+  $('#hide').click(function(){
+      $('#rectangle').hide();
+  });
+  //Afficher le rectangle
+  $('#show').click(function(){
+      $('#rectangle').show();
+  });
+  </script>
+</body>
+</html>
